@@ -8,6 +8,13 @@ async function selectionSort(arr, arr_cont) {
                 min_ind = j;
             }
         }
+
+        await new Promise(res => {
+            setTimeout(() => {                
+                arr_cont[min_ind].style.background = 'red';
+                res();
+            },sp);
+        })
         swap(arr, i, min_ind);
         await swap_cont(i, min_ind);     // defined in quicksort.js
         arr_cont[i].style.background = '#1dca1c';
